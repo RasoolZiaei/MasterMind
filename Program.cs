@@ -513,10 +513,11 @@ while (true)
             Console.ResetColor();
             break;
     }
-    Console.Write("\nPlay again?\nTo play again type 'y' and press ENTER or to exit press other kyes: ");
-    string playAgain = Console.ReadLine();
-    if (playAgain == "y")
+    Console.Write("\nPlay again?\nTo play again type Y then press ENTER or to exit press other kyes: ");
+    string playAgain = Console.ReadLine().ToUpper();
+    if (playAgain == "Y")
     {
+        Console.Clear();
         continue;
     }
     else
