@@ -8,7 +8,7 @@ Console.WriteLine("In this game, a random number is chosen by the computer and y
 
 while (true)
 {
-    Console.Write("Easy => Enter 1\nMedium => Enter 2\nHard => Enter 3\nCHOOS GAME LEVEL: ");
+    Console.Write("Easy => Enter 1\nMedium => Enter 2\nHard => Enter 3\nMaster => Enter 4\nCHOOS GAME LEVEL: ");
     string gameLevel = Console.ReadLine();
     Random random = new Random();
     switch (gameLevel)
@@ -507,6 +507,215 @@ while (true)
                 }
             }
             break;
+        #region MASTER LEVEL
+        //MASTER level
+        case "4":
+            //select six-digit number by computer
+            int ranomNumber4 = random.Next(100_000, 1_000_000);
+            //Console.WriteLine(ranomNumber4);
+            Console.WriteLine("The computer chose a six-digit number " +
+                "and you have 10 chances to guess that number.");
+            // convert random number to string
+            string numberAsString4 = ranomNumber4.ToString();
+            //Create an array with the length of the string
+            int[] digits4 = new int[numberAsString4.Length];
+            // Placing each value of the numeric string in the array
+            for (int i = 0; i < numberAsString4.Length; i++)
+            {
+                digits4[i] = int.Parse(numberAsString4[i].ToString());
+            };
+            //Display array members
+            //foreach (var item in digits4)
+            //{
+            //    Console.Write(item);
+            //}
+            //Console.Write("\n");
+            //Get user guess numbers
+            int counter4 = 1;
+            while (counter4 <= 10)
+            {
+                try
+                {
+                    Console.Write($"Guess number {counter4} : ");
+                    int guessedNumber = int.Parse(Console.ReadLine());
+                    //checking the condition of entering a five-digit integer
+                    if (guessedNumber.ToString().Length == 6)
+                    {
+                        //Create an array with the length of the string
+                        int[] digitsOfGuessedNum = new int[guessedNumber.ToString().Length];
+                        // Placing each of the string values in the array
+                        for (int i = 0; i < guessedNumber.ToString().Length; i++)
+                        {
+                            digitsOfGuessedNum[i] = int.Parse(guessedNumber.ToString()[i].ToString());
+                        }
+                        //Checking and comparing the values of two arrays
+                        if (digitsOfGuessedNum[0] == digits4[0] && digitsOfGuessedNum[1] == digits4[1] && digitsOfGuessedNum[2] == digits4[2] && digitsOfGuessedNum[3] == digits4[3] && digitsOfGuessedNum[4] == digits4[4] && digitsOfGuessedNum[5] == digits4[5])
+                        {
+                            //change color to green  => digitsOfGuessedNum[0,1,2,3,4,5]
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.Write($"YOU WON.\nThe Correct Number Is Equal To: {guessedNumber}");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                            break;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < 6; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    if (digitsOfGuessedNum[0] == digits4[0])
+                                    {
+                                        //change color to green  => digitsOfGuessedNum[0]
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(digitsOfGuessedNum[0]);
+                                    }
+                                    else if (digitsOfGuessedNum[0] == digits4[1] || digitsOfGuessedNum[0] == digits4[2] || digitsOfGuessedNum[0] == digits4[3] || digitsOfGuessedNum[0] == digits4[4] || digitsOfGuessedNum[0] == digits4[5])
+                                    {
+                                        //change color to yellow  => digitsOfGuessedNum[0]
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(digitsOfGuessedNum[0]);
+                                    }
+                                    else
+                                    {
+                                        //change color to red  => digitsOfGuessedNum[0]
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(digitsOfGuessedNum[0]);
+                                    }
+                                }
+                                else if (i == 1)
+                                {
+                                    if (digitsOfGuessedNum[1] == digits4[1])
+                                    {
+                                        //change color to green  => digitsOfGuessedNum[1]
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(digitsOfGuessedNum[1]);
+                                    }
+                                    else if (digitsOfGuessedNum[1] == digits4[0] || digitsOfGuessedNum[1] == digits4[2] || digitsOfGuessedNum[1] == digits4[3] || digitsOfGuessedNum[1] == digits4[4] || digitsOfGuessedNum[1] == digits4[5])
+                                    {
+                                        //change color to yellow  => digitsOfGuessedNum[1]
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(digitsOfGuessedNum[1]);
+                                    }
+                                    else
+                                    {
+                                        //change color to red  => digitsOfGuessedNum[1]
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(digitsOfGuessedNum[1]);
+                                    }
+                                }
+                                else if (i == 2)
+                                {
+                                    if (digitsOfGuessedNum[2] == digits4[2])
+                                    {
+                                        //change color to green  => digitsOfGuessedNum[2]
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(digitsOfGuessedNum[2]);
+                                    }
+                                    else if (digitsOfGuessedNum[2] == digits4[0] || digitsOfGuessedNum[2] == digits4[1] || digitsOfGuessedNum[2] == digits4[3] || digitsOfGuessedNum[2] == digits4[4] || digitsOfGuessedNum[2] == digits4[5])
+                                    {
+                                        //change color to yellow  => digitsOfGuessedNum[2]
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(digitsOfGuessedNum[2]);
+                                    }
+                                    else
+                                    {
+                                        //change color to red  => digitsOfGuessedNum[2]
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(digitsOfGuessedNum[2]);
+                                    }
+                                }
+                                else if (i == 3)
+                                {
+                                    if (digitsOfGuessedNum[3] == digits4[3])
+                                    {
+                                        //change color to green  => digitsOfGuessedNum[3]
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(digitsOfGuessedNum[3]);
+                                    }
+                                    else if (digitsOfGuessedNum[3] == digits4[0] || digitsOfGuessedNum[3] == digits4[1] || digitsOfGuessedNum[3] == digits4[2] || digitsOfGuessedNum[3] == digits4[4] || digitsOfGuessedNum[3] == digits4[5])
+                                    {
+                                        //change color to yellow  => digitsOfGuessedNum[3]
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(digitsOfGuessedNum[3]);
+                                    }
+                                    else
+                                    {
+                                        //change color to red  => digitsOfGuessedNum[3]
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(digitsOfGuessedNum[3]);
+                                    }
+                                }
+                                else if (i == 4)
+                                {
+                                    if (digitsOfGuessedNum[4] == digits4[4])
+                                    {
+                                        //change color to green  => digitsOfGuessedNum[4]
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(digitsOfGuessedNum[4]);
+                                    }
+                                    else if (digitsOfGuessedNum[4] == digits4[0] || digitsOfGuessedNum[4] == digits4[1] || digitsOfGuessedNum[4] == digits4[2] || digitsOfGuessedNum[4] == digits4[3] || digitsOfGuessedNum[4] == digits4[5])
+                                    {
+                                        //change color to yellow  => digitsOfGuessedNum[4]
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(digitsOfGuessedNum[4]);
+                                    }
+                                    else
+                                    {
+                                        //change color to red  => digitsOfGuessedNum[4]
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(digitsOfGuessedNum[4]);
+                                    }
+                                }
+                                else if (i == 5)
+                                {
+                                    if (digitsOfGuessedNum[5] == digits4[5])
+                                    {
+                                        //change color to green  => digitsOfGuessedNum[5]
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.Write(digitsOfGuessedNum[5]);
+                                    }
+                                    else if (digitsOfGuessedNum[5] == digits4[0] || digitsOfGuessedNum[5] == digits4[1] || digitsOfGuessedNum[5] == digits4[2] || digitsOfGuessedNum[5] == digits4[3] || digitsOfGuessedNum[5] == digits4[4])
+                                    {
+                                        //change color to yellow  => digitsOfGuessedNum[5]
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.Write(digitsOfGuessedNum[5]);
+                                    }
+                                    else
+                                    {
+                                        //change color to red  => digitsOfGuessedNum[5]
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.Write(digitsOfGuessedNum[5]);
+                                    }
+                                }
+                            }
+                            if (counter4 == 10)
+                            {
+                                //change color to red  => digitsOfGuessedNum[0,1,2,3,4,5]
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.Write($"\nYou Lose!\nThe Correct Number Is Equal To: ");
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write($"{ranomNumber4}");
+                                Console.ResetColor();
+                                Console.ReadKey();
+                                break;
+                            }
+                            Console.ResetColor();
+                            Console.Write("\n");
+                            counter4++;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You must enter a five-digit integer number.");
+                    Console.ResetColor();
+                    break;
+                }
+            }
+            break;
+        #endregion
         default:
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Enter the value correctly!");
