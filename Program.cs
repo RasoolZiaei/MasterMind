@@ -5,8 +5,8 @@ Console.WriteLine("In this game, a random number is chosen by the computer and y
     "\nIf your guessed number is correct only (wrong position), the number will be displayed in yellow." +
     "\nIf your guessed number is wrong, the number will be displayed in red.");
 // CODED BY RASOOL ZIAEI \\*// 1403.01.03 \\*// The Practical Project Of The Introductory C# Course Of Sematec School.
-
-while (true)
+string playAgain = "Y";
+do
 {
     Console.Write("Easy => Enter 1\nMedium => Enter 2\nHard => Enter 3\nMaster => Enter 4\nCHOOS GAME LEVEL: ");
     string gameLevel = Console.ReadLine();
@@ -723,14 +723,14 @@ while (true)
             break;
     }
     Console.Write("\nPlay again?\nTo play again type Y then press ENTER or to exit press other kyes: ");
-    string playAgain = Console.ReadLine().ToUpper();
+    playAgain = Console.ReadLine().ToUpper();
     if (playAgain == "Y")
     {
         Console.Clear();
-        continue;
+        //continue;
     }
     else
     {
         break;
     }
-}
+} while (playAgain == "Y");
